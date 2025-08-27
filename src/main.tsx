@@ -4,10 +4,12 @@ import './index.css'
 import App from './App.tsx'
 import { ThemeProvider } from './providers/ThemeContext.tsx'
 
+
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <App />
+        <App />
     </ThemeProvider>
   </StrictMode>,
 )
