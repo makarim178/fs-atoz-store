@@ -11,16 +11,14 @@ export const ProductList = memo(() => {
 
     if (loading) return (<div>Loading...</div>)
     return (
-        <div>
+        <>
             <h1>Products</h1>
-            <ul>
+            <div className="flex flex-wrap justify-evenly p-12">
                 {
                     products.map(product => (<ProductCard key={product.productId} product={product}  />))
                 }
-            </ul>
-
+            </div>
             <Pagination />
-
-        </div>
+        </>
     )
 })
