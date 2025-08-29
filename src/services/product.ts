@@ -1,5 +1,5 @@
 import { DEFAULT_SEARCH_QUERY, REQUEST_HEADERS } from "@/constants/requestTypes"
-import type { PostRequestType, ProductSearchCriteria, ProductSearchResponseType } from "@/types/product"
+import type { ProductSearchCriteria, ProductSearchResponseType } from "@/types/product"
 
 async function searchProduct(requestBody: ProductSearchCriteria): Promise<ProductSearchResponseType>  {
     const requestOptions: PostRequestType = {

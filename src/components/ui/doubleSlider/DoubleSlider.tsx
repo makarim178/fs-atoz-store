@@ -1,30 +1,38 @@
 import { PRICE_RANGE } from '@/constants/globalConstants';
-import { useProductContext } from '@/providers/ProductsContext';
 import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
 import { useState } from 'react';
+import { RangeInputComponent } from '../RangeInput/RangeInput';
+import type { DoubleSliderPropsType } from '@/types/props';
 
 function valueText(value: number) {
   return `$${value}`
 }
 
-export const DoubleSlider = () => {
-    const {searchQuery, setSearchQuery} = useProductContext()
+export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
     const [value, setValue] = useState<number[]>([20, 37]);
 
-    const handleChange = (event: Event, newValue: number[]) => {
+    const handleChange = (_: Event, newValue: number[]) => {
       setValue(newValue);
-      setSearchQuery({...searchQuery, minPrice: newValue[0], maxPrice: newValue[1]})
+      mutateQuery({ minPrice: newValue[0], maxPrice: newValue[1] })
     };
+
+    const handleMinVal = (val: number) => {
+      setValue(([_, b]) => [val, b])
+      mutateQuery({ minPrice: val, maxPrice: value[1]})
+    }
 
     return (
       <div className='flex flex-col w-full justify-center content-center my-4'>
           <div>
-              <span>Price range: </span>
-              <span>{`$${value[0]} - $${value[1]}`}</span>
+              <h4 className='text-md font-semibold pb-4'>Price Range</h4>
+              <div className="flex justify-between items-center gap-2">
+                <RangeInputComponent id='min-range' title='Min' value={value[0]} maxValue={value[1]} getValue={handleMinVal} />
+                <RangeInputComponent id='max-range' title='Max' value={value[1]} maxValue={value[0]} getMaxValue={true} getValue={handleMinVal} />
+              </div>
           </div>
           <div className='flex justify-center content-center w-full'>
-              <Box sx={{ width: 300 }}>
+              <Box className="w-[710px] md:w-[300px]" color={'Scrollbar'}>
               <Slider
                   getAriaLabel={() => 'Temperature range'}
                   value={value}
@@ -32,6 +40,12 @@ export const DoubleSlider = () => {
                   valueLabelDisplay="auto"
                   max={PRICE_RANGE.MAX}
                   getAriaValueText={valueText}
+                  sx={{
+                      '& .MuiSlider-thumb': { color: '#cbcbd3' },
+                      '& .MuiSlider-track': { color: '#cbcbd3' },
+                      '& .MuiSlider-rail': { color: '#575757' },
+                      '& .MuiSlider-active': { color: '#A3A3A3' }
+                  }}
               />
               </Box>
           </div>

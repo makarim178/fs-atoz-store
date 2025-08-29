@@ -24,12 +24,6 @@ type ProductSearchCriteria = {
     pageSize: number
 }
 
-type PostRequestType = {
-    method: 'POST' | 'PUT' | 'DELETE',
-    headers: DynamicObject
-    body: string
-}
-
 type PaginationType = {
     totalCount: number
     currentPage: number
@@ -37,4 +31,15 @@ type PaginationType = {
     totalPages: number
     hasNextPage: boolean
     hasPreviousPage: boolean
+}
+
+interface ProductsContextType {
+    products: ProductType[] | []
+    pagination: PaginationType
+    searchQuery: ProductSearchCriteria
+    setSearchQuery: (query: ProductSearchCriteria) => void
+    loading: boolean
+    fetching: boolean
+    error: Error | null
+    refetch: (options?: RefetchOptions) => Promise<QueryObserverResult<ProductSearchResponseType, Error>>
 }

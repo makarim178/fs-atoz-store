@@ -1,6 +1,6 @@
-import { useProductContext } from "@/providers/ProductsContext"
 import type { PaginationType} from "@/types/product"
 import { PageNumber } from "./PageNumber"
+import { useProductContext } from "@/hooks/useProduct"
 
 type PageNumberType = {
     id: string, 
@@ -9,6 +9,7 @@ type PageNumberType = {
 
 export const Pagination = () => {
     const { pagination : { 
+        totalCount,
         currentPage, 
         totalPages,
     } }: { pagination: PaginationType} = useProductContext()
@@ -24,7 +25,9 @@ export const Pagination = () => {
     return (
         <div className="flex w-full justify-center content-center gap-4">
          {
-            pageNumerArr().map((pageObject: PageNumberType) => (<PageNumber key={pageObject.id} pageNumber={pageObject.pageNumber} currentPage={currentPage}/>))
+            totalCount > 0 
+                ? pageNumerArr().map((pageObject: PageNumberType) => (<PageNumber key={pageObject.id} pageNumber={pageObject.pageNumber} currentPage={currentPage}/>))
+                : <h3 className="p-4 text-sm text-amber-950 dark:text-neutral-200">Could not find any products with current search terms.</h3>
          }   
         </div>
     )

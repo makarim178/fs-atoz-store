@@ -1,37 +1,11 @@
 
 import { DEFAULT_SEARCH_QUERY } from "@/constants/requestTypes";
+import { ProductContext } from "@/contexts/ProductContext";
 import { productService } from "@/services/product";
-import type { PaginationType, ProductSearchCriteria, ProductSearchResponseType, ProductType } from "@/types/product";
-import { useQuery, type QueryObserverResult, type RefetchOptions } from "@tanstack/react-query";
+import type { ProductSearchCriteria } from "@/types/product";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-
-interface ProductsContextType {
-    products: ProductType[] | []
-    pagination: PaginationType
-    searchQuery: ProductSearchCriteria
-    setSearchQuery: (query: ProductSearchCriteria) => void
-    loading: boolean
-    error: Error | null
-    refetch: (options?: RefetchOptions) => Promise<QueryObserverResult<ProductSearchResponseType, Error>>
-}
-
-export const ProductContext = createContext<ProductsContextType>({
-    products: [],
-    pagination: {
-        currentPage: 1,
-        totalPages: 1,
-        totalCount: 0,
-        hasNextPage: false,
-        hasPreviousPage: false,
-        pageSize: 10
-    },
-    searchQuery: DEFAULT_SEARCH_QUERY,
-    setSearchQuery: () => {},
-    loading: false,
-    error: null,
-    refetch: async() => Promise.resolve({} as QueryObserverResult<ProductSearchResponseType, Error>)
-});
+import { useEffect, useMemo, useState } from "react";
 
 export const ProductProvider = ({children} : { children: React.ReactNode}) => {
     const [searchQuery, setSearchQuery] = useState<ProductSearchCriteria>(DEFAULT_SEARCH_QUERY)
@@ -50,18 +24,19 @@ export const ProductProvider = ({children} : { children: React.ReactNode}) => {
     const {
         data, 
         isLoading,
+        isFetching,
         error,
         refetch
-    } = useQuery({
+    } = useSuspenseQuery({
         queryKey: ['products', debouncedQuery],
         queryFn: async() => {
             const requestBody:ProductSearchCriteria = productService.destructureProductSearch(debouncedQuery)
             const response = await productService.searchProduct(requestBody)
             return response
         },
-        enabled: true,
         staleTime: 5 * 60 * 1000,
-        gcTime: 10* 60 * 100
+        gcTime: 10* 60 * 100,
+        refetchOnWindowFocus: false,
     })
     return (
         <ProductContext.Provider value={{
@@ -77,6 +52,7 @@ export const ProductProvider = ({children} : { children: React.ReactNode}) => {
             searchQuery,
             setSearchQuery,
             loading: isLoading,
+            fetching: isFetching,
             error,
             refetch
         }}>
@@ -84,5 +60,3 @@ export const ProductProvider = ({children} : { children: React.ReactNode}) => {
         </ProductContext.Provider>
     )
 }
-
-export const useProductContext = () => useContext(ProductContext)

@@ -1,15 +1,6 @@
-import React, { createContext, useContext, useMemo, useState } from "react"
+import React, { useMemo, useState } from "react"
+import { ThemeContext } from "@/contexts/ThemeContext"
 import type { ThemeType } from "@/constants/theme"
-
-interface ThemeContextType {
-    theme: ThemeType,
-    toggleTheme: () => void
-}
-
-export const ThemeContext = createContext<ThemeContextType>({
-    theme: 'light',
-    toggleTheme: () => {}
-})
 
 export function ThemeProvider({children}: {children: React.ReactNode}) {
     const [theme, setTheme] = useState<ThemeType>('light')
@@ -22,8 +13,4 @@ export function ThemeProvider({children}: {children: React.ReactNode}) {
             { children }
         </ThemeContext.Provider>
     )
-}
-
-export function useThemeContext() {
-    return useContext(ThemeContext)
 }

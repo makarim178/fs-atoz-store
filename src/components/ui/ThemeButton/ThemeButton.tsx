@@ -1,5 +1,5 @@
 import { THEME_CONFIG, THEMES } from '@/constants/theme'
-import { useThemeContext } from '@/providers/ThemeContext';
+import { useThemeContext } from '@/hooks/useTheme'
 
 export function ThemeButton () {
     const { theme, toggleTheme } = useThemeContext()
@@ -10,10 +10,10 @@ export function ThemeButton () {
     }
     return (
         <div 
-            className={`h-8 w-8 border-2 opacity-50 rounded-3xl 
-                border-[#242424] dark:border-white flex justify-center 
+            className={`h-8 w-8 rounded-3xl 
+                main-border flex justify-center 
                 items-center cursor-pointer transition duration-300 ease-in-out 
-                hover:rotate-30`}
+                hover:rotate-30 bg-none`}
             onClick={toggleTheme}
         >
             { getThemeIcon() }
