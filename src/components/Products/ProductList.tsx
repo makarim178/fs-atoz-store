@@ -9,7 +9,7 @@ export const ProductList = memo(() => {
     } = useProductContext()
     return (
         <>
-            <h3 className="text-lg font-semibold px-4">Products</h3>
+            <h3 className="text-lg font-semibold px-4 title-text-theme">Products</h3>
             <div className="flex flex-wrap justify-around">
                 {
                     products.map(product => (

@@ -15,6 +15,7 @@ export const CartSummary = () => {
             navigate(`${ROUTES.ORDER}/${order.id}`)
         } catch (error) {
             toast.error('Order could not be created due to internal errors!')
+            if (error instanceof Error) console.error("Order creation failed:", error.message)
         }
     }
 
@@ -32,10 +33,10 @@ export const CartSummary = () => {
 
     return (
         <div className="border-1 main-border rounded-sm md:w-1/3 p-12 m-12">
-            <h2 className="text-xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 title-text-theme">
                 Cart Summary
             </h2>
-            <div className="space-y-2 mb-4">
+            <div className="space-y-2 mb-4 title-text-theme">
                 <div className="flex justify-between">
                     <span>Items ({ getTotalItems()})</span>
                     <span>${optimisticCart.total.toFixed(2)}</span>

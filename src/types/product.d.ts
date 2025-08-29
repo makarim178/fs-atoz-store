@@ -15,7 +15,7 @@ type ProductType = {
 type ProductSearchResponseType = {
     products: Product[]
 } & PaginationType
-πd
+
 type ProductSearchCriteria = {
     search?: string
     minPrice?: number | null

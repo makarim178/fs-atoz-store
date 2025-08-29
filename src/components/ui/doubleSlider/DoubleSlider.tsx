@@ -12,20 +12,20 @@ function valueText(value: number) {
 export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
     const [value, setValue] = useState<number[]>([20, 37]);
 
-    const handleChange = (_: Event, newValue: number[]) => {
+    const handleChange = (newValue: number[]) => {
       setValue(newValue);
       mutateQuery({ minPrice: newValue[0], maxPrice: newValue[1] })
     };
 
     const handleMinVal = (val: number) => {
-      setValue(([_, b]) => [val, b])
+      setValue(prev => [val, prev[1]])
       mutateQuery({ minPrice: val, maxPrice: value[1]})
     }
 
     return (
       <div className='flex flex-col w-full justify-center content-center my-4'>
           <div>
-              <h4 className='text-md font-semibold pb-4'>Price Range</h4>
+              <h4 className='text-md font-semibold pb-4 title-text-theme'>Price Range</h4>
               <div className="flex justify-between items-center gap-2">
                 <RangeInputComponent id='min-range' title='Min' value={value[0]} maxValue={value[1]} getValue={handleMinVal} />
                 <RangeInputComponent id='max-range' title='Max' value={value[1]} maxValue={value[0]} getMaxValue={true} getValue={handleMinVal} />
@@ -36,7 +36,7 @@ export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
               <Slider
                   getAriaLabel={() => 'Temperature range'}
                   value={value}
-                  onChange={handleChange}
+                  onChange={() => handleChange}
                   valueLabelDisplay="auto"
                   max={PRICE_RANGE.MAX}
                   getAriaValueText={valueText}

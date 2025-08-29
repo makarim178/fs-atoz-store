@@ -11,7 +11,7 @@ export const useCartData = (sessionId: UUID | null, initCartMutation: any) => {
             return CartServices.getCart(sessionId)}
         ,
         enabled: !!sessionId,
-        retry: (failureCount, error) => {
+        retry: (failureCount) => {
             if (failureCount < 1) {
                 initCartMutation.mutate(sessionId)
                 return false

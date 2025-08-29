@@ -1,5 +1,4 @@
 import type { ReactNode } from "react"
-import type { ProductSearchCriteria } from "./product"
 
 type OnlyChildrenPropsType = {
     children: ReactNode
@@ -10,7 +9,7 @@ type RangeInputComponentPropsType = {
   value: number
   maxValue: number
   title: string
-  getMaxValue?: boolean = false
+  getMaxValue?: boolean
   getValue: (changedValue: number) => void
 }
 

@@ -10,11 +10,12 @@ export const MainPage = () => {
         <MainLayout>
             <div className='flex flex-col md:flex-row main-bg'>
                 <ProductFilterComponent />
-                <Suspense fallback={<CircularProgress />}>
-                    <div className="flex flex-col">
+                <div className="flex flex-col">
+                   {/* <Suspense fallback={<CircularProgress />}> */}
+                   <Suspense fallback={<span>Loading...</span>}>
                         <ProductList />
-                    </div>
-                </Suspense>
+                    </Suspense>
+                </div>
             </div>
         </MainLayout>
     )

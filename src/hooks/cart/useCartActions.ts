@@ -24,7 +24,7 @@ export const useCartActions = ({
         updateCartItemMutation,
         removeFromCartMutation,
         createOrderMutation
-    } = useCartMutations(sessionId, cart?.id)
+    } = useCartMutations(sessionId)
 
 
     const addToCart = useCallback(async (item: AddToCartPayloadType): Promise<void> => {

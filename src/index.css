@@ -10,7 +10,7 @@
 }
 
 .main-border { 
-  @apply dark:border-[#EDEDED] border-[#D7D7D7]
+  @apply dark:border-[#373636] border-[#D7D7D7]
 }
 
 .product-image-bg {
@@ -27,11 +27,11 @@
 }
 
 .button-color-theme {
-  @apply bg-[#cbcbd3] dark:bg-[#202020] hover:bg-[#c2c2c7] hover:dark:bg-[#282727]
+  @apply bg-[#cbcbd3] dark:bg-[#303030] hover:bg-[#c2c2c7] hover:dark:bg-[#595959] dark:text-neutral-300
 }
 
 .pagination-colors {
-  @apply border-[#A3A3A3] dark:border-[#cbcaca] hover:dark:border-[#e2e2e2] text-neutral-400 dark:text-neutral-100 hover:border-[#797878]
+  @apply border-[#A3A3A3] dark:border-[#3f3e3e] hover:dark:border-[#e2e2e2] text-neutral-400 dark:text-neutral-600 hover:border-[#797878]
 }
 
 .pagination-colors-current {
@@ -54,6 +54,18 @@
   @apply absolute opacity-0 group-hover:opacity-100 
     transition-opacity duration-300 top-12 -left-60
     bg-[#F1F2F7] dark:bg-[#212121] rounded-sm
-    dark:border-[#EDEDED] border-[#D7D7D7]
+    dark:border-[#373636] border-[#D7D7D7]
     border-1 px-1 py-2 w-72
+}
+
+.title-text-theme {
+  @apply text-neutral-800 dark:text-neutral-200
+}
+
+.input-text-theme {
+  @apply dark:text-neutral-400
+}
+
+.input-color-theme {
+  @apply bg-[#D9D9D9] dark:bg-[#323232]
 }

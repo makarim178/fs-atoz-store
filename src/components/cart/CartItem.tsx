@@ -40,7 +40,7 @@ export const CartItemComponent = ({ item }: CartItemComponentPropsType) => {
      }
 
     return (
-            <div className="flex flex-row md:flex-col md:flex-6/12 lg:flex-4/12 md:content-center p-4 border-b border-neutral-300 md:border-b-0">
+            <div className="flex flex-row md:flex-col md:flex-6/12 lg:flex-4/12 md:content-center p-4 border-b main-border md:border-b-0">
                 <div className="border-1 main-border product-image-bg rounded-xs shadow-sm overflow-hidden max-w-32 md:max-w-72">
                     <img 
                         src={item.imageUrl} alt={item.productName} 
@@ -49,10 +49,10 @@ export const CartItemComponent = ({ item }: CartItemComponentPropsType) => {
                 <div className="flex md:flex-col w-full">
                     <div className="flex-1 justify-around md:flex md:flex-col md:justify-between ml-4 md:ml-0">
                         <div className="flex flex-col md:flex-row">
-                            <h4 className="font-semubold">{item.productName}</h4>
+                            <h4 className="font-semubold title-text-theme">{item.productName}</h4>
                             <p className="text-gray-600 darl:text-gray-200">${item.price.toFixed(2)}</p>
                         </div>
-                        <p className="text-sm text-gray-500 dark:tet-gray-300">Total: ${item.lineTotal}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-200">Total: ${item.lineTotal}</p>
                     </div>
                     <div className="flex items-center justify-around md:justify-start">
                         <button 
@@ -61,7 +61,7 @@ export const CartItemComponent = ({ item }: CartItemComponentPropsType) => {
                             className="py-1 rounded disabed:opacity-50 cursor-pointer">
                             <RemoveCircleOutlineRounded className="text-gray-600 dark:text-gray-200 hover:text-amber-700 "/>
                         </button>
-                        <span className="px-4 py-2 rounded">{item.quantity}</span>
+                        <span className="px-4 py-2 rounded title-text-theme">{item.quantity}</span>
                         <button 
                             onClick={handleIncrement}
                             disabled={isUpdatingCart}

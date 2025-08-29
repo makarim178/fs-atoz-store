@@ -6,7 +6,7 @@ export const RangeInputComponent = ({ id, value, getMaxValue, maxValue, title, g
   const [inputVal, setInputVal] = useState<string>('')
 
   useEffect(() => {
-    setInputVal(_ => value.toString())
+    setInputVal(value.toString())
   }, [value])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -18,17 +18,17 @@ export const RangeInputComponent = ({ id, value, getMaxValue, maxValue, title, g
     } else {
         if (+val >= maxValue) val = (maxValue - 1).toString() 
     }
-    setInputVal(_ => val)
+    setInputVal(val)
     getValue(+val)
   }
 
 
   return (
     <>
-      <label htmlFor={id}>{ title }</label>
+      <label htmlFor={id} className="title-text-theme text-xs">{ title }</label>
       <input 
         id={id} 
-        className='focus:outline-none bg-[#D9D9D9] p-2 rounded-md w-full' 
+        className='focus:outline-none input-text-theme input-color-theme p-2 rounded-md w-full' 
         type="number" 
         placeholder='0' 
         value={inputVal}

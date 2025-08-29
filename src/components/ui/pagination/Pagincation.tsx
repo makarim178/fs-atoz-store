@@ -15,7 +15,7 @@ export const Pagination = () => {
     } }: { pagination: PaginationType} = useProductContext()
 
     const pageNumerArr = (): PageNumberType[] => {
-        let arr: PageNumberType[] = []
+        const arr: PageNumberType[] = []
         for (let i = 1; i < totalPages + 1; i++) {
             arr.push({ id: `product-page-${i.toString().padStart(2,"0")}`, pageNumber: i})
         }

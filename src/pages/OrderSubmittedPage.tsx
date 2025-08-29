@@ -10,13 +10,12 @@ export const OrderSubmittedPage = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    if (!orderId) {
-        toast.error('Could not fetch Order Id')
-        console.error('Could not fetch Order Id')
-        return
-    }
-
     useEffect(() => {
+        if (!orderId) {
+            toast.error('Could not fetch Order Id')
+            console.error('Could not fetch Order Id')
+            return
+        }
         const fetchOrder = async () => {
             try {
                 setLoading(true)
@@ -25,12 +24,15 @@ export const OrderSubmittedPage = () => {
                 toast.success('Order retrieved Successfully!')
             } catch (error) {
                 toast.error('Sorry! Could not retrieve Order! Please try again later!')
+                if (error instanceof Error) console.error('Could not fetch Order:', error.message)
             } finally {
                 setLoading(false)
             }
         }
         fetchOrder()
     }, [])
+
+
 
     if (loading ) return <div>loading...</div>
 

@@ -24,8 +24,8 @@ export const ProductFilterComponent = () => {
     }
 
     return (
-        <div className="flex flex-col px-2 gap-4">
-            <h3 className="text-lg font-semibold">Filters</h3>
+        <div className="flex flex-col px-2 gap-4 ">
+            <h3 className="text-lg font-semibold title-text-theme">Filters</h3>
             <ProductSearch mutateQuery={mutateQuery}/>
             <DoubleSlider mutateQuery={mutateQuery} />
         </div>
