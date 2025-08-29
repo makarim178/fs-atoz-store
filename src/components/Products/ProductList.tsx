@@ -1,7 +1,7 @@
-import { memo } from "react"
-import { ProductCard } from "./ProductCard"
-import { Pagination } from "../ui/pagination/Pagincation"
-import { useProductContext } from "@/hooks/useProduct"
+import { memo } from 'react'
+import { ProductCard } from './ProductCard'
+import { Pagination } from '../ui/pagination/Pagination'
+import { useProductContext } from '@/hooks/useProduct'
 
 export const ProductList = memo(() => {
     const { 

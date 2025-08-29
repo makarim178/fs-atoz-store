@@ -1,8 +1,8 @@
-import { ROUTES } from "@/constants/globalConstants"
-import { useCart } from "@/hooks/cart/useCart"
+import { ROUTES } from '@/constants/globalConstants'
+import { useCart } from '@/hooks/cart/useCart'
 import { ShoppingCart} from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
-import { MiniCartItemComponent } from "./MiniCartItem"
+import { MiniCartItemComponent } from './MiniCartItem'
 
 export const CartIcon = () => {
     const { getTotalItems, optimisticCart } = useCart()

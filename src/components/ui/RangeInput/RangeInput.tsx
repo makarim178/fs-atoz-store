@@ -1,5 +1,5 @@
-import type { RangeInputComponentPropsType } from "@/types/props"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
+import type { RangeInputComponentPropsType } from '@/types/props'
 import type { ChangeEvent } from 'react'
 
 export const RangeInputComponent = ({ id, value, getMaxValue, maxValue, title, getValue }: RangeInputComponentPropsType) => {

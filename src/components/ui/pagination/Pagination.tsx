@@ -1,6 +1,6 @@
-import type { PaginationType} from "@/types/product"
-import { PageNumber } from "./PageNumber"
-import { useProductContext } from "@/hooks/useProduct"
+import type { PaginationType} from '@/types/product'
+import { PageNumber } from './PageNumber'
+import { useProductContext } from '@/hooks/useProduct'
 
 type PageNumberType = {
     id: string, 

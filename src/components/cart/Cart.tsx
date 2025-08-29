@@ -1,5 +1,5 @@
-import { useCart } from "@/hooks/cart/useCart"
-import { CartItemComponent } from "./CartItem"
+import { useCart } from '@/hooks/cart/useCart'
+import { CartItemComponent } from './CartItem'
 
 export const Cart = () => {
     const { optimisticCart } = useCart()

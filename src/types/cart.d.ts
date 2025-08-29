@@ -1,5 +1,5 @@
-import type { UUID } from "crypto"
-import type React from "react"
+import type { UUID } from 'crypto'
+import type React from 'react'
 
 type ItemType = {
     productId: UUID

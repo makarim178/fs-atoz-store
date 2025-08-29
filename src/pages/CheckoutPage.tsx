@@ -1,6 +1,6 @@
-import { Cart } from "@/components/cart/Cart"
-import { CartSummary } from "@/components/cart/CartSummary"
-import { MainLayout } from "@/layouts/MainLayout"
+import { Cart } from '@/components/cart/Cart'
+import { CartSummary } from '@/components/cart/CartSummary'
+import { MainLayout } from '@/layouts/MainLayout'
 
 export const CheckoutPage = () => {
     return (

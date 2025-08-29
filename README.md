@@ -44,6 +44,12 @@ To preview the production build:
 npm run preview
 ```
 
+## Important Notes 
+
+- Suspense and loading state has not been implemented due to time constrain
+- All APIs are set according to local/dev environment
+- Please change the API hosts ./constants/api.ts if Server Host changes
+
 ## Configuration
 
 - API endpoints are configured in [`src/constants/api.ts`](src/constants/api.ts).

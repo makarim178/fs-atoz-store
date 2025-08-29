@@ -1,11 +1,11 @@
 
-import { DEFAULT_SEARCH_QUERY } from "@/constants/requestTypes";
-import { ProductContext } from "@/contexts/ProductContext";
-import { productService } from "@/services/product";
-import type { ProductSearchCriteria } from "@/types/product";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { debounce } from "lodash";
-import { useEffect, useMemo, useState } from "react";
+import { debounce } from 'lodash'
+import { productService } from '@/services/product'
+import { useEffect, useMemo, useState } from 'react'
+import { useSuspenseQuery } from '@tanstack/react-query'
+import { ProductContext } from '@/contexts/ProductContext'
+import { DEFAULT_SEARCH_QUERY } from '@/constants/requestTypes'
+import type { ProductSearchCriteria } from '@/types/product'
 
 export const ProductProvider = ({children} : { children: React.ReactNode}) => {
     const [searchQuery, setSearchQuery] = useState<ProductSearchCriteria>(DEFAULT_SEARCH_QUERY)

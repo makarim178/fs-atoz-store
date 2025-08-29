@@ -1,8 +1,8 @@
-import { ROUTES } from "@/constants/globalConstants"
-import { useCart } from "@/hooks/cart/useCart"
-import { throttle } from "@/utils/common"
-import { useNavigate } from "react-router-dom"
-import { toast } from "sonner"
+import { ROUTES } from '@/constants/globalConstants'
+import { useCart } from '@/hooks/cart/useCart'
+import { throttle } from '@/utils/common'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 
 export const CartSummary = () => {
     const { optimisticCart, getTotalItems, createOrder, isCreatingOrder, isLoading } = useCart()

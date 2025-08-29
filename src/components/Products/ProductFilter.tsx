@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { DoubleSlider } from "../ui/doubleSlider/DoubleSlider"
-import { ProductSearch } from "./ProductSearch"
-import type { ProductSearchCriteria } from "@/types/product"
-import { PRICE_RANGE } from "@/constants/globalConstants"
-import { DEFAULT_PAGE_SIZE } from "@/constants/requestTypes"
-import { useProductContext } from "@/hooks/useProduct"
-import type { QueryParamsType } from "@/types/props"
+import { useState } from 'react'
+import { DoubleSlider } from '../ui/doubleSlider/DoubleSlider'
+import { ProductSearch } from './ProductSearch'
+import type { ProductSearchCriteria } from '@/types/product'
+import { PRICE_RANGE } from '@/constants/globalConstants'
+import { DEFAULT_PAGE_SIZE } from '@/constants/requestTypes'
+import { useProductContext } from '@/hooks/useProduct'
+import type { QueryParamsType } from '@/types/props'
 
 export const ProductFilterComponent = () => {
     const { setSearchQuery } = useProductContext()
@@ -19,7 +19,6 @@ export const ProductFilterComponent = () => {
 
     const mutateQuery = (query: QueryParamsType) => {
         setCombQuery( prev => ({...prev, ...query}))
-        console.log(combQuery)
         setSearchQuery({ ...combQuery, ...query})
     }
 

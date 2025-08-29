@@ -12,14 +12,19 @@ function valueText(value: number) {
 export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
     const [value, setValue] = useState<number[]>([20, 37]);
 
-    const handleChange = (newValue: number[]) => {
-      setValue(newValue);
+    const handleChange = (_: Event, newValue: number[]) => {
+      _.preventDefault()
+      setValue(newValue)
       mutateQuery({ minPrice: newValue[0], maxPrice: newValue[1] })
     };
 
     const handleMinVal = (val: number) => {
       setValue(prev => [val, prev[1]])
       mutateQuery({ minPrice: val, maxPrice: value[1]})
+    }
+    const handleMaxVal = (val: number) => {
+      setValue(prev => [prev[0], val])
+      mutateQuery({ minPrice: value[0], maxPrice: val})
     }
 
     return (
@@ -28,7 +33,7 @@ export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
               <h4 className='text-md font-semibold pb-4 title-text-theme'>Price Range</h4>
               <div className="flex justify-between items-center gap-2">
                 <RangeInputComponent id='min-range' title='Min' value={value[0]} maxValue={value[1]} getValue={handleMinVal} />
-                <RangeInputComponent id='max-range' title='Max' value={value[1]} maxValue={value[0]} getMaxValue={true} getValue={handleMinVal} />
+                <RangeInputComponent id='max-range' title='Max' value={value[1]} maxValue={value[0]} getMaxValue={true} getValue={handleMaxVal} />
               </div>
           </div>
           <div className='flex justify-center content-center w-full'>
@@ -36,7 +41,7 @@ export const DoubleSlider = ({mutateQuery}: DoubleSliderPropsType) => {
               <Slider
                   getAriaLabel={() => 'Temperature range'}
                   value={value}
-                  onChange={() => handleChange}
+                  onChange={handleChange}
                   valueLabelDisplay="auto"
                   max={PRICE_RANGE.MAX}
                   getAriaValueText={valueText}

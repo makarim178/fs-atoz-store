@@ -1,8 +1,9 @@
-import { CartServices } from "@/services/cart.services"
-import type { OrderType } from "@/types/cart"
-import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import { toast } from "sonner"
+import { toast } from 'sonner'
+import { useEffect, useState } from 'react'
+import type { OrderType } from '@/types/cart'
+import { CartServices } from '@/services/cart.services'
+import { useNavigate, useParams } from 'react-router-dom'
+import { MainLayout } from '@/layouts/MainLayout'
 
 export const OrderSubmittedPage = () => {
     const { orderId } = useParams()
@@ -40,12 +41,14 @@ export const OrderSubmittedPage = () => {
         navigate('/')
     }
     return (
-        <div className="flex w-full justify-center p-12">
-            <div className="w-full md:w-2/4 border-1 main-border p-12 shadow-md rounded-sm text-center flex flex-col gap-3">
-                <h3 className="text-lg font-semibold ">Thank you for Ordering Products from AtoZStore!</h3>
-                <p>Your Order id: <strong>{order?.id}</strong></p>
-                <button onClick={handlenNavigation} className="button-color-theme px-12 py-4 rounded-sm shadow-md cursor-pointer">Click to Order more items.</button>
+        <MainLayout>
+            <div className="flex w-full justify-center p-12">
+                <div className="w-full md:w-2/4 border-1 main-border p-12 shadow-md rounded-sm text-center flex flex-col gap-3">
+                    <h3 className="text-lg font-semibold title-text-theme">Thank you for Ordering Products from AtoZStore!</h3>
+                    <p className='title-text-theme text-sm'>Your Order id: <strong>{order?.id}</strong></p>
+                    <button onClick={handlenNavigation} className="button-color-theme px-12 py-4 rounded-sm shadow-md cursor-pointer">Click to Order more items.</button>
+                </div>
             </div>
-        </div>
+        </MainLayout>
     )
 }

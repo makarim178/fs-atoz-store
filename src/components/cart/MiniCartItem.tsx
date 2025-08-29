@@ -1,4 +1,4 @@
-import type { CartItemComponentPropsType } from "@/types/cart"
+import type { CartItemComponentPropsType } from '@/types/cart'
 
 export const MiniCartItemComponent = ({ item }: CartItemComponentPropsType) => {
     return (

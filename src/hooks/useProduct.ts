@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { ProductContext } from "@/contexts/ProductContext";
-import type { ProductsContextType } from "@/types/product";
+import { useContext } from 'react'
+import { ProductContext } from '@/contexts/ProductContext'
+import type { ProductsContextType } from '@/types/product'
 
 export const useProductContext = ():ProductsContextType => {
     const context= useContext(ProductContext)

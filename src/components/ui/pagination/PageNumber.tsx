@@ -1,4 +1,4 @@
-import { useProductContext } from "@/hooks/useProduct"
+import { useProductContext } from '@/hooks/useProduct'
 
 export const PageNumber =({ pageNumber, currentPage }: { pageNumber: number, currentPage: number}) => {
 

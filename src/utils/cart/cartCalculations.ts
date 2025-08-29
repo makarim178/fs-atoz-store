@@ -1,4 +1,4 @@
-import type { CartItemType } from "@/types/cart";
+import type { CartItemType } from '@/types/cart'
 
 
 export const calculateLineTotal = (price: number, quantity: number): number => price * quantity 

@@ -1,10 +1,9 @@
-import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
-import './App.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { RouteList } from './routes/RouteList';
 import { Toaster } from 'sonner';
+import { RouteList } from './routes/RouteList';
 import { CartProvider } from './providers/CartProvider';
 import { ProductProvider } from './providers/ProductsProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
 
 const queryClient = new QueryClient({
   defaultOptions: {

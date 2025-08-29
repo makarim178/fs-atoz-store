@@ -1,7 +1,7 @@
 
-import { memo, useState } from "react"
-import SearchIcon from '@mui/icons-material/Search';
-import type { ProductSearchPropsType } from "@/types/props";
+import { memo, useState } from 'react'
+import SearchIcon from '@mui/icons-material/Search'
+import type { ProductSearchPropsType } from '@/types/props'
 
 export const ProductSearch = memo(({ mutateQuery }: ProductSearchPropsType) => {
     const [inputValue, setInputValue] = useState("")

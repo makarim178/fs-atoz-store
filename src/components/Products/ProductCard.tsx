@@ -1,12 +1,12 @@
-import { useCart } from "@/hooks/cart/useCart"
-import type { AddToCartPayloadType } from "@/types/cart"
-import type { ProductType } from "@/types/product"
-import { throttle } from "@/utils/common"
-import { CircularProgress } from "@mui/material" 
-import type { UUID } from "crypto"
-import { useState } from "react"
-import { toast } from "sonner"
-import AddIcon from '@mui/icons-material/Add';
+import { useCart } from '@/hooks/cart/useCart'
+import type { AddToCartPayloadType } from '@/types/cart'
+import type { ProductType } from '@/types/product'
+import { throttle } from '@/utils/common'
+import { CircularProgress } from '@mui/material'
+import type { UUID } from 'crypto'
+import { useState } from 'react'
+import { toast } from 'sonner'
+import AddIcon from '@mui/icons-material/Add'
 
 export const ProductCard = ({ product }: { product: ProductType}) => {
     const [id, setId] = useState<UUID | null>(null)

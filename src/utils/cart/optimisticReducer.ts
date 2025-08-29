@@ -1,5 +1,5 @@
-import type { CartItemType, CartType, OptimisticActionType } from "@/types/cart";
-import { calculateCartTotal } from "./cartCalculations";
+import { calculateCartTotal } from './cartCalculations'
+import type { CartItemType, CartType, OptimisticActionType } from '@/types/cart'
 
 export const optimisticReducer = (state: CartType, action: OptimisticActionType): CartType => {
     switch(action.type) {

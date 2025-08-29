@@ -1,7 +1,7 @@
-import { createContext } from "react";
-import type { QueryObserverResult } from "@tanstack/react-query";
-import { DEFAULT_SEARCH_QUERY } from "@/constants/requestTypes";
-import type { ProductsContextType, ProductSearchResponseType } from "@/types/product";
+import { createContext } from 'react'
+import type { QueryObserverResult } from '@tanstack/react-query'
+import { DEFAULT_SEARCH_QUERY } from '@/constants/requestTypes'
+import type { ProductsContextType, ProductSearchResponseType } from '@/types/product'
 
 export const ProductContext = createContext<ProductsContextType>({
     products: [],

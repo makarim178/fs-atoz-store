@@ -1,7 +1,7 @@
-import type { CartItemType, CartType } from "@/types/cart";
-import { optimisticReducer } from "@/utils/cart/optimisticReducer";
-import type { UUID } from "crypto";
-import { useOptimistic} from "react";
+import type { UUID } from 'crypto'
+import { useOptimistic} from 'react'
+import type { CartItemType, CartType } from '@/types/cart'
+import { optimisticReducer } from '@/utils/cart/optimisticReducer'
 
 export const useCartOptimistic = (cart: CartType | null | undefined) => {
     const [optimisticCart, setOptimisticCart] = useOptimistic(

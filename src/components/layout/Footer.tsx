@@ -1,4 +1,4 @@
-import { Copyright } from "@mui/icons-material"
+import { Copyright } from '@mui/icons-material'
 export const FooterComponent = () => {
     const copyRightContext = new Date().getFullYear() + " AtoZ Store. All Rights Reserved."
     return (

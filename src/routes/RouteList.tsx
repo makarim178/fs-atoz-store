@@ -1,7 +1,7 @@
-import { ROUTES } from "@/constants/globalConstants";
-import { CheckoutPage } from "@/pages/CheckoutPage";
-import { MainPage } from "@/pages/MainPage";
-import { OrderSubmittedPage } from "@/pages/OrderSubmittedPage";
+import { MainPage } from '@/pages/MainPage'
+import { CheckoutPage } from '@/pages/CheckoutPage'
+import { ROUTES } from '@/constants/globalConstants'
+import { OrderSubmittedPage } from '@/pages/OrderSubmittedPage'
 
 export const RouteList = [
     {

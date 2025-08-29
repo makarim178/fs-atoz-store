@@ -1,7 +1,7 @@
-import { CartServices } from "@/services/cart.services";
-import type { CartType } from "@/types/cart";
-import { useQuery } from "@tanstack/react-query";
-import type { UUID } from "crypto";
+import type { UUID } from 'crypto'
+import type { CartType } from '@/types/cart'
+import { CartServices } from '@/services/cart.services'
+import { useQuery } from '@tanstack/react-query'
 
 export const useCartData = (sessionId: UUID | null, initCartMutation: any) => {
     return useQuery<CartType, Error>({

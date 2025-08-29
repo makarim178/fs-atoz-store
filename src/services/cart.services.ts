@@ -1,7 +1,13 @@
-import { BASE_URI, URI } from "@/constants/api";
-import { REQUEST_HEADERS } from "@/constants/requestTypes";
-import type { AddToCartPayloadType, CartItemType, CartType, OrderType, UpdateCartItemPayloadType } from "@/types/cart";
-import type { UUID } from "crypto";
+import { BASE_URI, URI } from '@/constants/api'
+import { REQUEST_HEADERS } from '@/constants/requestTypes'
+import type { 
+    AddToCartPayloadType, 
+    CartItemType, 
+    CartType, 
+    OrderType, 
+    UpdateCartItemPayloadType 
+} from '@/types/cart'
+import type { UUID } from 'crypto'
 
 const postRequestOptions = (method: RequestType['method'] = 'POST'): PostRequestType => ({
     method,

@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
-import { generateSessionId, getStoredSessionId, setStoreSessionId } from "@/shared/helpers/localStorage";
-import type { CartContextType, CartProviderPropsType } from "@/types/cart";
-import type { UUID } from "crypto";
-import { useCartMutations } from "@/hooks/cart/useCartMutations";
-import { useCartData } from "@/hooks/cart/useCartData";
-import { useCartOptimistic } from "@/hooks/cart/useCartOptimistic";
-import { useCartActions } from "@/hooks/cart/useCartActions";
-import { CartContext } from "@/contexts/CartContext";
+import { useEffect, useState } from 'react'
+import { 
+    generateSessionId, 
+    getStoredSessionId, 
+    setStoreSessionId 
+} from '@/shared/helpers/localStorage'
+import type { 
+    CartContextType, 
+    CartProviderPropsType 
+} from '@/types/cart'
+import type { UUID } from 'crypto'
+import { CartContext } from '@/contexts/CartContext'
+import { useCartData } from '@/hooks/cart/useCartData'
+import { useCartActions } from '@/hooks/cart/useCartActions'
+import { useCartMutations } from '@/hooks/cart/useCartMutations'
+import { useCartOptimistic } from '@/hooks/cart/useCartOptimistic'
 
 export const CartProvider = ({ children }: CartProviderPropsType) => {
     const [sessionId, setSessionId] = useState<UUID | null>(null)

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-import { CartIcon } from "../cart/cartIcon"
-import { ThemeButton } from "../ui/themeButton/ThemeButton"
+import { Link } from 'react-router-dom'
+import { CartIcon } from '../cart/cartIcon'
+import { ThemeButton } from '../ui/themeButton/ThemeButton'
 
 export const HeaderComponent = () => {
     return (
